@@ -1,0 +1,30 @@
+<ion-content>
+  <ion-item>
+    <ion-input type="text" placeholder="Enter subject name" #subject></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" placeholder="Enter student name" #student></ion-input>
+  </ion-item>
+  <p><button ion-button color="primary" block (click)="addSubject(subject.value, student.value)">Matricular</button></p>
+  <ion-item>
+    <ion-input type="text" placeholder="Search" #data></ion-input>
+  </ion-item>
+  <button ion-button small outline (click)="nameSearch(data.value)">Nom</button>
+  <button ion-button small outline (click)="studySearch(data.value)">Estudis</button>
+  <button ion-button small outline (click)="semesterSearch(data.value)">Semester</button>
+  <button ion-button small outline (click)="sortedSearch()" class="btn btn-default">Ordenat</button>
+  <button ion-button full color="secondary" (click)="allSubject()" class="btn btn-default">Totes les Assignatures</button>
+  <ion-list>
+    <ion-list-header>
+      Information
+    </ion-list-header>
+    <ion-item *ngFor="let subject of subjects">
+      <button ion-item (click)="openItem(subject)">
+        <div class = "row">
+          <div class = "col">Name: {{ subject['name'] }}</div>
+          <div class = "col">Students: {{ subject['students'].length }}</div>
+        </div>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

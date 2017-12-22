@@ -1,0 +1,21 @@
+<ion-content>
+  <ion-item>
+    <ion-input type="text" placeholder="Enter student name" #student></ion-input>
+  </ion-item>
+  <button ion-button color="primary" block (click)="oneStudent(student.value)">Info student</button>
+  <p></p>
+  <button ion-button color="primary" block (click)="allStudents()">All students</button>
+  <ion-list>
+    <ion-list-header>
+      Information
+    </ion-list-header>
+    <ion-item *ngFor="let student of students">
+      <button ion-item (click)="openItem(student)">
+        <div class = "row">
+          <div class = "col">Name: {{ student['name'] }}</div>
+          <div class = "col">Age: {{ student['age'] }}</div>
+        </div>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

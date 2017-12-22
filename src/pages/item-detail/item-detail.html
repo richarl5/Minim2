@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ type }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding *ngIf="studentType">
+  <div class="item-detail" padding>
+    <h2>{{item.name}}</h2>
+    <p>{{item.age}}</p>
+  </div>
+  <ion-list>
+    <ion-list-header>
+      Subjects
+    </ion-list-header>
+    <ion-item *ngFor="let subject of item['subjects']">
+        <div class = "row">
+          <div class = "col">Name: {{ subject['name'] }}</div>
+          <div class = "col">Studies: {{ subject['studies'] }}</div>
+          <div class = "col">Semester: {{ subject['semester'] }}</div>
+        </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-content padding *ngIf="!studentType">
+  <div class="item-detail" padding>
+    <h2>{{item.name}}</h2>
+    <p>{{ item['studies'] }}</p>
+    <p>{{ item['semester'] }}</p>
+  </div>
+  <ion-list>
+    <ion-list-header>
+      Students
+    </ion-list-header>
+    <ion-item *ngFor="let student of item['students']">
+      <div class = "row">
+        <div class = "col">Name: {{ student['name'] }}</div>
+        <div class = "col">Age: {{ student['age'] }}</div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-content>
+  <div padding>
+    <ion-segment [(ngModel)]="user">
+      <ion-segment-button value="student">
+        Student
+      </ion-segment-button>
+      <ion-segment-button value="subject">
+        Subject
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="user">
+    <ion-item-group *ngSwitchCase="'student'">
+      <ion-item>
+        <ion-input type="text" placeholder="Enter student name" #student></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-input type="text" placeholder="Enter student age" #age></ion-input>
+      </ion-item>
+      <p><button ion-button color="secondary" block (click)="studentSubmit(student.value, age.value)">Add student</button></p>
+    </ion-item-group>
+    <ion-item-group *ngSwitchCase="'subject'">
+      <ion-item>
+        <ion-input type="text" placeholder="Enter subject name" #name></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Enter studies" #studies></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Enter semester" #semester></ion-input>
+      </ion-item>
+      <p><button ion-button color="secondary" block (click)="subjectSubmit(name.value, studies.value, semester.value)">Add subject</button></p>
+    </ion-item-group>
+  </div>
+</ion-content>
